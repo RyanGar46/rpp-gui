@@ -1,7 +1,10 @@
 <template>
   <div class="column">
     <div class="column-top">
-      <input type="text"/>
+      <Dropdown
+      :list="['config', 'patch']"
+      :default="0"
+      />
       <button class="subtract-button" @click="this.$parent.removeColumn(index);">-</button>
     </div>
     <div class="column-content">
@@ -11,7 +14,11 @@
 </template>
 
 <script>
+import Dropdown from "./Dropdown.vue"
 export default {
+  components: {
+    Dropdown
+  },
   props: [
     "content",
     "index"
@@ -20,15 +27,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../main.scss";
 .column {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
   min-width: fit-content;
-  border-radius: 8px;
+  border-radius: $size-round-large;
   overflow: hidden;
-  border: 2px solid rgb(37, 37, 37);
-  background-color: rgb(45, 47, 49);
+  border: 2px solid $color-background;
+  background-color: $color-menu;
 
   .column-top,
   .column-content {
@@ -36,7 +44,7 @@ export default {
   }
 
   .column-top {
-    border-bottom: 2px solid rgb(37, 37, 37);
+    border-bottom: 2px solid $color-background;
   }
 
   .column-content {

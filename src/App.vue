@@ -38,13 +38,15 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./main.scss";
 #app {
   position: absolute;
   height: 100%;
   width: 100%;
-  color: white;
-  background-color: rgb(37, 37, 37);
+  color: $color-text;
+  background-color: $color-background;
   font-family: Helvetica, Arial, sans-serif;
+  font-size: $size-font-normal;
 }
 
 .column-container {
